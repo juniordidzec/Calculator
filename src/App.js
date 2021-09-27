@@ -38,7 +38,7 @@ export default function App() {
     const arrayValor = valor.split('').pop()
     if((arrayValor==='+' || arrayValor==='-' || arrayValor==='/' || arrayValor==='*' || arrayValor==='.' || arrayValor==='') && (digito==='+' || digito==='-' || digito==='/' || digito==='*'|| digito==='.')) {
       return
-    }else if((valor === '') && (digito==='+' || digito==='-' || digito==='/' || digito==='*'|| digito==='.')){
+    }else if((valor === '') && (digito==='+' || digito==='-' || digito==='/' || digito==='*' || digito==='.' || digito===')')){
       return
     }else {
       const valorDigitadoTela=valor+digito
