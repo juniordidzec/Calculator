@@ -1,29 +1,18 @@
 import React, {useState} from 'react';
 
+import Screen from './components/screen';
+import Btn from './components/btn';
+
+import './App.css';
+import './components/screen.css';
+import './components/btn.css';
+
 export default function App() {
   const [valor, setValor] = useState('');
   const [resultado, setResultado] = useState(0);
   const [acumulador, setAcumulador] = useState(0);  
   const [operado, setOperado] = useState(false);
 
-  const Tela=(valor, res)=>{
-    return(
-      <div className='main-display'>
-        <p className='display-value'>{valor}</p>
-        <p className='display-result'>{res}</p>
-      </div>
-    )
-  }
-
-  const Btn=(label, onClick)=>{
-    const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-
-    return(
-        <button className={`buttons-calculator ${label === '.' || label in num ? '' : '-orange'}`} onClick={onClick}>{label}</button>
-    )
-  }
-
-  //Funções
   const addDigitoTela=(digito, valor)=>{
     if((digito==='+' || digito==='-' || digito==='/' || digito==='*') && operado) {
         setOperado(false)
@@ -74,33 +63,32 @@ export default function App() {
     }
   }
 
-
   return (
     <main className='main'>
       <div className='main-container'>
         <h3>Calculadora Matemática</h3>
-        {Tela(valor, resultado)}
+        <Screen valor={valor} res={resultado}/>
         <div className='wrapper-buttons'>
-          {Btn('AC', limparMemoria)}
-          {Btn('(', ()=>addDigitoTela('(', valor))}
-          {Btn(')', ()=>addDigitoTela(')', valor))}
-          {Btn('/', ()=>addDigitoTela('/', valor))}
-          {Btn('7', ()=>addDigitoTela('7', valor))}
-          {Btn('8', ()=>addDigitoTela('8', valor))}
-          {Btn('9', ()=>addDigitoTela('9', valor))}
-          {Btn('*', ()=>addDigitoTela('*', valor))}
-          {Btn('4', ()=>addDigitoTela('4', valor))}
-          {Btn('5', ()=>addDigitoTela('5', valor))}
-          {Btn('6', ()=>addDigitoTela('6', valor))}
-          {Btn('-', ()=>addDigitoTela('-', valor))}
-          {Btn('1', ()=>addDigitoTela('1', valor))}
-          {Btn('2', ()=>addDigitoTela('2', valor))}
-          {Btn('3', ()=>addDigitoTela('3', valor))}
-          {Btn('+', ()=>addDigitoTela('+', valor))}
-          {Btn('0', ()=>addDigitoTela('0', valor))}
-          {Btn('.', ()=>addDigitoTela('.', valor))}
-          {Btn('<-', ()=>operacao('bs', valor))}
-          {Btn('=', ()=>operacao('=', valor))}
+          <Btn label={'AC'} onClick={limparMemoria}/>
+          <Btn label={'('} onClick={()=>addDigitoTela('(', valor)}/>
+          <Btn label={')'} onClick={()=>addDigitoTela(')', valor)}/>
+          <Btn label={'/'} onClick={()=>addDigitoTela('/', valor)}/>
+          <Btn label={'7'} onClick={()=>addDigitoTela('7', valor)}/>
+          <Btn label={'8'} onClick={()=>addDigitoTela('8', valor)}/>
+          <Btn label={'9'} onClick={()=>addDigitoTela('9', valor)}/>
+          <Btn label={'*'} onClick={()=>addDigitoTela('*', valor)}/>
+          <Btn label={'4'} onClick={()=>addDigitoTela('4', valor)}/>
+          <Btn label={'5'} onClick={()=>addDigitoTela('5', valor)}/>
+          <Btn label={'6'} onClick={()=>addDigitoTela('6', valor)}/>
+          <Btn label={'-'} onClick={()=>addDigitoTela('-', valor)}/>
+          <Btn label={'1'} onClick={()=>addDigitoTela('1', valor)}/>
+          <Btn label={'2'} onClick={()=>addDigitoTela('2', valor)}/>
+          <Btn label={'3'} onClick={()=>addDigitoTela('3', valor)}/>
+          <Btn label={'+'} onClick={()=>addDigitoTela('+', valor)}/>
+          <Btn label={'0'} onClick={()=>addDigitoTela('0', valor)}/>
+          <Btn label={'.'} onClick={()=>addDigitoTela('.', valor)}/>
+          <Btn label={'<-'} onClick={()=>operacao('bs', valor)}/>
+          <Btn label={'='} onClick={()=>operacao('=', valor)}/>
         </div>
       </div>
     </main>

@@ -1,0 +1,24 @@
+.main-display {
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #9bd5b8;
+    flex-direction: column;
+    width: 280px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    overflow: -moz-hidden-unscrollable;
+}
+
+.display-value {
+    font-size: 25px;
+    color: #000;
+    height: 20px;
+}
+
+.display-result {
+    font-size: 50px;
+    color: #000;
+}
